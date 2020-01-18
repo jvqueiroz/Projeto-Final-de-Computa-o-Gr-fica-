@@ -267,3 +267,34 @@
 1579226856 source:c:\users\jvyct\desktop\ufersa\5º periodo\computação gráfica\projeto_final\draws.c
 	"draws.h"
 
+1551380692 source:c:\users\jvyct\documents\github\projeto-final-de-computa-o-gr-fica-\projeto_final\bmp_loader.c
+	<stdio.h>
+	<stdlib.h>
+
+1579225227 source:c:\users\jvyct\documents\github\projeto-final-de-computa-o-gr-fica-\projeto_final\main.c
+	<GL/glut.h>
+	<GL/glu.h>
+	<stdlib.h>
+	<stdio.h>
+	<math.h>
+	"bmp_loader.h"
+	"texture.h"
+	"draws.h"
+
+1551297166 c:\users\jvyct\documents\github\projeto-final-de-computa-o-gr-fica-\projeto_final\bmp_loader.h
+
+1552958880 c:\users\jvyct\documents\github\projeto-final-de-computa-o-gr-fica-\projeto_final\texture.h
+	<GL/glut.h>
+	<GL/glu.h>
+	"draws.h"
+
+1579130624 c:\users\jvyct\documents\github\projeto-final-de-computa-o-gr-fica-\projeto_final\draws.h
+	<GL/glut.h>
+	<GL/glu.h>
+
+1579316793 source:c:\users\jvyct\documents\github\projeto-final-de-computa-o-gr-fica-\projeto_final\texture.c
+	"texture.h"
+
+1579327094 source:c:\users\jvyct\documents\github\projeto-final-de-computa-o-gr-fica-\projeto_final\draws.c
+	"draws.h"
+

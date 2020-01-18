@@ -490,4 +490,35 @@ void makeTexture(void){
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, larg, alt, 0,
                  GL_RGB, GL_UNSIGNED_BYTE, MiltankPataLado2);
     free(MiltankPataLado2);
+
+
+    unsigned char *GinasioParede = load_bmp("GinasioParede.bmp", &larg, &alt);
+
+    glBindTexture(GL_TEXTURE_2D, texture_nomes[48]);
+
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, larg, alt, 0,
+                 GL_RGB, GL_UNSIGNED_BYTE, GinasioParede);
+    free(GinasioParede);
+
+
+    unsigned char *GinasioTelha = load_bmp("GinasioTelha.bmp", &larg, &alt);
+
+    glBindTexture(GL_TEXTURE_2D, texture_nomes[49]);
+
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, larg, alt, 0,
+                 GL_RGB, GL_UNSIGNED_BYTE, GinasioTelha);
+    free(GinasioTelha);
+
+
+
+    unsigned char *GinasioDetalhesAzuis = load_bmp("GinasioDetalhesAzuis.bmp", &larg, &alt);
+
+    glBindTexture(GL_TEXTURE_2D, texture_nomes[50]);
+
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, larg, alt, 0,
+                 GL_RGB, GL_UNSIGNED_BYTE, GinasioDetalhesAzuis);
+    free(GinasioDetalhesAzuis);
 }//*****************************************

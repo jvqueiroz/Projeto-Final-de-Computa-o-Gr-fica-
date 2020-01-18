@@ -1,6 +1,8 @@
 #include "draws.h"
 
 GLuint texture_nomes [80];
+int i;
+float y=-3.5;
 
 GLint faces[6][4] = {
     {0,1,2,3}, {3,2,6,7}, {7,6,5,4},
@@ -759,7 +761,7 @@ static void desenhaLua(){
  static void desenhaNuvem(){
     int i , j;
         glBindTexture(GL_TEXTURE_2D, texture_nomes[17]);
-        glTranslatef(-70, 18, 0);
+        glTranslatef(-70, 20, 0);
         glScalef(1.0, 0.3, 1.0);
     for(i=0; i< 3; i++){
         glTranslatef(0, 0, -1.0);
@@ -783,6 +785,549 @@ static void desenhaLuaOuSol(){
         glScalef(3.0, 3.0, 1.0);
         drawCube();
     glPopMatrix();
+}
+
+//Ginasio
+static void desenhaGinasio(){
+// Parte Frente
+  //pilar 1
+  glPushMatrix();
+    glBindTexture(GL_TEXTURE_2D, texture_nomes[48]);
+      glTranslatef(-80.0, 2.0, -10.0);
+      glScalef(20.0, 8.0, 1.0);
+      drawCube();
+   glPopMatrix();
+
+   // telha 1
+
+   glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[49]);
+      glTranslatef(-80.0, 10.2, -10.0);
+      glScalef(21.0, 0.35, 1.0);
+      drawCube();
+   glPopMatrix();
+
+    //pilar do 2
+
+  glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[48]);
+      glTranslatef(-60.0, 3.0, -12.0);
+      glScalef(1.0, 8.5, 1.0);
+      drawCube();
+  glPopMatrix();
+
+  //Telha 2
+   glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[49]);
+      glTranslatef(-58.0, 11.2, -12.0);
+      glScalef(1.0, 0.35, 1.0);
+      drawCube();
+  glPopMatrix();
+
+  //pilar 3
+
+  glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[48]);
+      glTranslatef(-59.0, 4.0, -14.0);
+      glScalef(1.0, 9.5, 1.0);
+      drawCube();
+  glPopMatrix();
+
+  //telha 3
+  glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[49]);
+      glTranslatef(-57.0, 13.2, -14.0);
+      glScalef(1.0, 0.35, 1.0);
+      drawCube();
+  glPopMatrix();
+
+  //pilar 4
+
+  glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[48]);
+      glTranslatef(-58.0, 5.0, -16.0);
+      glScalef(1.0, 10.5, 1.0);
+      drawCube();
+  glPopMatrix();
+
+  // telha 4
+  glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[49]);
+      glTranslatef(-56.0, 15.2, -16.0);
+      glScalef(1.0, 0.35, 1.0);
+      drawCube();
+  glPopMatrix();
+
+  // pilar 5
+  glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[48]);
+      glTranslatef(-57.0, 6.0, -21.0);
+      glScalef(1.0, 11.5, 4.0);
+      drawCube();
+   glPopMatrix();
+
+   //telha 5
+   glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[49]);
+      glTranslatef(-54.0, 17.2, -21.0);
+      glScalef(2.0, 0.35, 4.0);
+      drawCube();
+   glPopMatrix();
+
+   // pilar 6
+
+   glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[48]);
+      glTranslatef(-58.0, 5.0, -26.0);
+      glScalef(1.0, 10.5, 1.0);
+      drawCube();
+  glPopMatrix();
+
+  // telha 6
+
+  glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[49]);
+      glTranslatef(-56.0, 15.2, -26.0);
+      glScalef(1.0, 0.35, 1.0);
+      drawCube();
+  glPopMatrix();
+
+  //pilar 7
+
+  glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[48]);
+      glTranslatef(-59.0, 4.0, -28.0);
+      glScalef(1.0, 9.5, 1.0);
+      drawCube();
+  glPopMatrix();
+
+  //telha 7
+  glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[49]);
+      glTranslatef(-57.0, 13.2, -28.0);
+      glScalef(1.0, 0.35, 1.0);
+      drawCube();
+  glPopMatrix();
+
+  //pilar 8
+
+    glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[48]);
+      glTranslatef(-60.0, 3.0, -30.0);
+      glScalef(1.0, 8.5, 1.0);
+      drawCube();
+  glPopMatrix();
+
+  //telha 8
+
+  glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[49]);
+      glTranslatef(-58.0, 11.2, -30.0);
+      glScalef(1.0, 0.35, 1.0);
+      drawCube();
+  glPopMatrix();
+
+  //pilar 9
+
+  glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[48]);
+      glTranslatef(-80.0, 2.0, -32.0);
+      glScalef(20.0, 8.0, 1.0);
+      drawCube();
+   glPopMatrix();
+
+   //telha 9
+   glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[49]);
+      glTranslatef(-80.0, 10.2, -32.0);
+      glScalef(21.0, 0.35, 1.0);
+      drawCube();
+   glPopMatrix();
+
+// Parte de Tras
+
+  //Pilar 2
+     glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[48]);
+      glTranslatef(-99.0, 3.0, -12.0);
+      glScalef(1.0, 8.5, 1.0);
+      drawCube();
+  glPopMatrix();
+
+  //Telha 2
+   glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[49]);
+      glTranslatef(-98.0, 11.2, -12.0);
+      glScalef(1.0, 0.35, 1.0);
+      drawCube();
+  glPopMatrix();
+
+  //pilar 3
+
+  glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[48]);
+      glTranslatef(-99.0, 4.0, -14.0);
+      glScalef(1.0, 9.5, 1.0);
+      drawCube();
+  glPopMatrix();
+
+  //telha 3
+  glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[49]);
+      glTranslatef(-98.0, 13.2, -14.0);
+      glScalef(1.0, 0.35, 1.0);
+      drawCube();
+  glPopMatrix();
+
+  //pilar 4
+
+  glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[48]);
+      glTranslatef(-99.0, 5.0, -16.0);
+      glScalef(1.0, 10.5, 1.0);
+      drawCube();
+  glPopMatrix();
+
+  // telha 4
+  glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[49]);
+      glTranslatef(-98.0, 15.2, -16.0);
+      glScalef(1.0, 0.35, 1.0);
+      drawCube();
+  glPopMatrix();
+
+  // pilar 5
+  glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[48]);
+      glTranslatef(-99.0, 6.0, -21.0);
+      glScalef(1.0, 11.5, 4.0);
+      drawCube();
+   glPopMatrix();
+
+   //telha 5
+   glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[49]);
+      glTranslatef(-98.0, 17.2, -21.0);
+      glScalef(2.0, 0.35, 4.0);
+      drawCube();
+   glPopMatrix();
+
+   // pilar 6
+
+   glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[48]);
+      glTranslatef(-99.0, 5.0, -26.0);
+      glScalef(1.0, 10.5, 1.0);
+      drawCube();
+  glPopMatrix();
+
+  // telha 6
+
+  glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[49]);
+      glTranslatef(-98.0, 15.2, -26.0);
+      glScalef(1.0, 0.35, 1.0);
+      drawCube();
+  glPopMatrix();
+
+  //pilar 7
+
+  glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[48]);
+      glTranslatef(-99.0, 4.0, -28.0);
+      glScalef(1.0, 9.5, 1.0);
+      drawCube();
+  glPopMatrix();
+
+  //telha 7
+  glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[49]);
+      glTranslatef(-98.0, 13.2, -28.0);
+      glScalef(1.0, 0.35, 1.0);
+      drawCube();
+  glPopMatrix();
+
+  //pilar 8
+
+    glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[48]);
+      glTranslatef(-99.0, 3.0, -30.0);
+      glScalef(1.0, 8.5, 1.0);
+      drawCube();
+  glPopMatrix();
+
+  //telha 8
+
+  glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[49]);
+      glTranslatef(-98.0, 11.2, -30.0);
+      glScalef(1.0, 0.35, 1.0);
+      drawCube();
+  glPopMatrix();
+
+// pokebola
+
+   //base
+   glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[17]);
+      glTranslatef(-56.0, 8.0, -21.0);
+      glScalef(1.0, 0.49, 1.5);
+      drawCube();
+   glPopMatrix();
+
+   //base 2
+   glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[17]);
+      glTranslatef(-56.0, 9.0, -21.0);
+      glScalef(1.0, 0.49, 2.0);
+      drawCube();
+   glPopMatrix();
+
+   //base 3 meio
+
+      glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[38]);
+      glTranslatef(-56.0, 10.0, -21.0);
+      glScalef(1.0, 0.49, 0.85);
+      drawCube();
+   glPopMatrix();
+
+   // base 3 lateral 1
+
+   glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[17]);
+      glTranslatef(-56.0, 10.0, -19.5);
+      glScalef(1.0, 0.49, 0.95);
+      drawCube();
+   glPopMatrix();
+
+   // base 3 lateral 2
+
+   glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[17]);
+      glTranslatef(-56.0, 10.0, -22.5);
+      glScalef(1.0, 0.49, 0.95);
+      drawCube();
+   glPopMatrix();
+
+   //base 4 meio
+
+      glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[17]);
+      glTranslatef(-56.0, 11.0, -21.0);
+      glScalef(1.0, 0.49, 0.85);
+      drawCube();
+   glPopMatrix();
+
+   // base 4 lateral 1
+
+   glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[38]);
+      glTranslatef(-56.0, 11.0, -19.5);
+      glScalef(1.0, 0.49, 0.95);
+      drawCube();
+   glPopMatrix();
+
+   // base 4 lateral 2
+
+   glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[38]);
+      glTranslatef(-56.0, 11.0, -22.5);
+      glScalef(1.0, 0.49, 0.95);
+      drawCube();
+   glPopMatrix();
+
+
+   //base 5 meio
+
+      glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[38]);
+      glTranslatef(-56.0, 12.0, -21.0);
+      glScalef(1.0, 0.49, 0.85);
+      drawCube();
+   glPopMatrix();
+
+   // base 5 lateral 1
+
+   glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[49]);
+      glTranslatef(-56.0, 12.0, -19.5);
+      glScalef(1.0, 0.49, 0.95);
+      drawCube();
+   glPopMatrix();
+
+   // base 5 lateral 2
+
+   glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[49]);
+      glTranslatef(-56.0, 12.0, -22.5);
+      glScalef(1.0, 0.49, 0.95);
+      drawCube();
+   glPopMatrix();
+
+   //base 6
+   glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[49]);
+      glTranslatef(-56.0, 13.0, -21.0);
+      glScalef(1.0, 0.49, 2.0);
+      drawCube();
+   glPopMatrix();
+
+   //base 7
+   glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[49]);
+      glTranslatef(-56.0, 14.0, -21.0);
+      glScalef(1.0, 0.49, 1.5);
+      drawCube();
+   glPopMatrix();
+
+//detalhes
+   //1
+   glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[50]);
+      glTranslatef(-55.5, 5.5, -17.45);
+      glScalef(0.45, 11.45, 0.40);
+      drawCube();
+   glPopMatrix();
+
+   //2
+   glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[50]);
+      glTranslatef(-55.5, 5.5, -24.45);
+      glScalef(0.45, 11.45, 0.40);
+      drawCube();
+   glPopMatrix();
+
+   //3
+
+   glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[50]);
+      glTranslatef(-56.0, 7.0, -21.0);
+      glScalef(1.0, 0.49, 1.5);
+      drawCube();
+   glPopMatrix();
+
+   //4
+   glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[50]);
+      glTranslatef(-56.0, 6.0, -21.0);
+      glScalef(4.0, 0.49, 3.0);
+      drawCube();
+   glPopMatrix();
+
+   //5
+   glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[50]);
+      glTranslatef(-57.0, 12.0, -16.45);
+      glScalef(0.45, 3.5, 0.40);
+      drawCube();
+   glPopMatrix();
+
+   //6
+   glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[50]);
+      glTranslatef(-58.0, 11.5, -14.45);
+      glScalef(0.45, 1.5, 0.40);
+      drawCube();
+   glPopMatrix();
+
+   //7
+   glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[50]);
+      glTranslatef(-59.0, 10.5, -12.45);
+      glScalef(0.45, 0.5, 0.45);
+      drawCube();
+   glPopMatrix();
+
+   //8
+   glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[50]);
+       glTranslatef(-56.9, 6.0, -16.45);
+      glScalef(0.2, 0.49, 1.5);
+      drawCube();
+   glPopMatrix();
+
+    //9
+   glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[50]);
+      glTranslatef(-57.9, 5.0, -14.45);
+      glScalef(0.2, 0.49, 1.5);
+      drawCube();
+   glPopMatrix();
+
+   //10
+   glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[50]);
+      glTranslatef(-58.9, 4.0, -12.45);
+      glScalef(0.2, 0.49, 1.5);
+      drawCube();
+   glPopMatrix();
+
+   //11
+   glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[50]);
+      glTranslatef(-59.6, 3.0, -9.99);
+      glScalef(0.2, 0.49, 1.0);
+      drawCube();
+   glPopMatrix();
+
+
+   //12
+   glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[50]);
+      glTranslatef(-57.0, 11.5, -25.2);
+      glScalef(0.45, 3.5, 0.40);
+      drawCube();
+   glPopMatrix();
+
+  //13
+   glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[50]);
+      glTranslatef(-58.0, 11.5, -27.4);
+      glScalef(0.45, 1.5, 0.40);
+      drawCube();
+   glPopMatrix();
+
+   //14
+   glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[50]);
+      glTranslatef(-59., 10.5, -29.4);
+      glScalef(0.45, 0.5, 0.40);
+      drawCube();
+   glPopMatrix();
+
+   //15
+   glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[50]);
+      glTranslatef(-56.9, 6.0, -25.0);
+      glScalef(0.2, 0.49, 2.0);
+      drawCube();
+   glPopMatrix();
+
+    //16
+   glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[50]);
+      glTranslatef(-57.9, 5.0, -28.0);
+      glScalef(0.2, 0.49, 1.1);
+      drawCube();
+   glPopMatrix();
+
+  //17
+   glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[50]);
+      glTranslatef(-58.9, 4.0, -30.0);
+      glScalef(0.2, 0.49, 1.0);
+      drawCube();
+   glPopMatrix();
+
+   //18
+   glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[50]);
+
+      glTranslatef(-59.6, 3.0, -32.0);
+      glScalef(0.2, 0.49, 0.8);
+      drawCube();
+   glPopMatrix();
 }
 
 //**************************************************************************************************************
@@ -836,8 +1381,8 @@ void display(void){
     //zombie 2
      glPushMatrix();
 
-        glTranslatef(-4, -0.2, -20);
-        glRotatef(140.0, 0.0, 1.0, 0.0);
+        glTranslatef(-50, -0.2, -25);
+        glRotatef(-90.0, 0.0, 1.0, 0.0);
         desenhaZombie();
     glPopMatrix();
 //----------------
@@ -913,7 +1458,11 @@ void display(void){
     glPopMatrix();
 
 //---------------------------------Desenhando Poço -----------------------------
-    desenhaPoco();
+    //desenhaPoco();
+
+      desenhaGinasio();
+
+
 
 //----------------------------------------------------------------------
     glFlush();
