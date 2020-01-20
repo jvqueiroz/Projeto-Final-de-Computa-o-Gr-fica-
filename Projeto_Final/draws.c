@@ -92,8 +92,8 @@ static void desenhaSoloIlha(){
                     glTranslatef(2, 0, 0);
                 }
 
-                 else{
-                    glBindTexture(GL_TEXTURE_2D, texture_nomes[5]);
+                  else{
+                    glBindTexture(GL_TEXTURE_2D, texture_nomes[7]);
                     glTranslatef(2, 0, 0);
                     drawCube();
 
@@ -118,7 +118,7 @@ static void desenhaSoloIlha(){
                 else if(i%3==0)
                     glBindTexture(GL_TEXTURE_2D, texture_nomes[7]);
                 else
-                    glBindTexture(GL_TEXTURE_2D, texture_nomes[5]);
+                    glBindTexture(GL_TEXTURE_2D, texture_nomes[7]);
 
 
                 if(i%2==1 && j== 0 || i==2 && j==0  ||  i==6 && j==0 ||  i==7 && j==0 ){
@@ -138,20 +138,6 @@ static void desenhaSoloIlha(){
                 }
             }
         }
-    glPopMatrix();
-
-    //Pedras
-    glPushMatrix();
-        glScalef(1, 1, 1);
-        glTranslatef(-21, 2,-32);
-        glBindTexture(GL_TEXTURE_2D, texture_nomes[8]);
-        drawCube();
-
-        glTranslatef(2, 0,0);
-        drawCube();
-
-        glTranslatef(2, 0,4);
-        drawCube();
     glPopMatrix();
 }
 
@@ -265,7 +251,7 @@ static void desenhaPoco(){
 }
 
 //Chao1
-static void desenhaAgua (){
+static void desenhaTerra2 (){
     int i, j;
     glPushMatrix();
         glScalef(1, 1, 1);
@@ -316,7 +302,7 @@ static void desenhaCasa(){
 }
 
 //Ahs
-static void desenhaZombie(){
+static void desenhaAhs(){
     glPushMatrix(); //rosto
         glTranslatef(-6, 4.2, -3.28);
         glScalef(0.4, 0.4, 0.4);
@@ -504,8 +490,129 @@ static void desenhaZombie(){
     glPopMatrix();
 }
 
+//Pikachu
+static void desenhaPikachu(){
+    int i;
+
+    glPushMatrix(); //cabeça
+        glScalef(0.2, 0.2, 0.3);
+        glTranslatef(-19.5, 14.0, -9.0);
+        glRotatef(-180.0, 0.0, -2.0,0.0);
+
+        for(i = 0; i <6; i++){
+        if(i==4){
+         glBindTexture(GL_TEXTURE_2D, texture_nomes[51]);
+        }else if (i==2){
+         glBindTexture(GL_TEXTURE_2D, texture_nomes[52]);
+        }else if(i==5){
+        glBindTexture(GL_TEXTURE_2D, texture_nomes[52]);
+        }else if(i==1){
+        glBindTexture(GL_TEXTURE_2D, texture_nomes[52]);
+        }else if(i==0){
+        glBindTexture(GL_TEXTURE_2D, texture_nomes[52]);
+        }else{
+            glBindTexture(GL_TEXTURE_2D, texture_nomes[52]);
+        }
+        glPushMatrix();
+        glBegin(GL_QUADS);
+            glTexCoord2f(0.0, 0.0);
+            glVertex3fv(&v[faces[i][0]][0]);
+
+            glTexCoord2f(0.0, 1.0);
+            glVertex3fv(&v[faces[i][1]][0]);
+
+            glTexCoord2f(1.0, 1.0);
+            glVertex3fv(&v[faces[i][2]][0]);
+
+            glTexCoord2f(1.0, 0.0);
+            glVertex3fv(&v[faces[i][3]][0]);
+        glEnd();
+        glPopMatrix();
+    }
+    glPopMatrix();
+
+/*    glPushMatrix(); //Corpo
+
+        glScalef(0.3, 0.4, 0.2);
+        glTranslatef(-13, 5.5, -9.2);
+        glRotatef(-180.0, 0.0, -2.0,0.0);
+        for(i = 0; i <6; i++){
+        if(i==4){
+         glBindTexture(GL_TEXTURE_2D, texture_nomes[52]);
+        }else if (i==2){
+         glBindTexture(GL_TEXTURE_2D, texture_nomes[52]);
+        }else if(i==5){
+        glBindTexture(GL_TEXTURE_2D, texture_nomes[52]);
+        }else if(i==1){
+        glBindTexture(GL_TEXTURE_2D, texture_nomes[52]);
+        }else if(i==0){
+        glBindTexture(GL_TEXTURE_2D, texture_nomes[52]);
+        }else{
+            glBindTexture(GL_TEXTURE_2D, texture_nomes[52]);
+        }
+        glPushMatrix();
+        glBegin(GL_QUADS);
+            glTexCoord2f(0.0, 0.0);
+            glVertex3fv(&v[faces[i][0]][0]);
+
+            glTexCoord2f(0.0, 1.0);
+            glVertex3fv(&v[faces[i][1]][0]);
+
+            glTexCoord2f(1.0, 1.0);
+            glVertex3fv(&v[faces[i][2]][0]);
+
+            glTexCoord2f(1.0, 0.0);
+            glVertex3fv(&v[faces[i][3]][0]);
+        glEnd();
+        glPopMatrix();
+    }
+    glPopMatrix();
+
+    /*glPushMatrix(); //baraço 01
+
+        glScalef(0.10, 0.3, 0.10);
+          //glRotatef(30.0, 1.0, 0.0, 0.0);
+        glTranslatef(-35, 7.5, -19.2);
+         glRotatef(-45.0, -1.0, 0.0, 0.0);
+        glRotatef(-180.0, 0.0, -2.0,0.0);
+        for(i = 0; i <6; i++){
+        if(i==4){
+         glBindTexture(GL_TEXTURE_2D, texture_nomes[5]);
+        }else if (i==2){
+         glBindTexture(GL_TEXTURE_2D, texture_nomes[5]);
+        }else if(i==5){
+        glBindTexture(GL_TEXTURE_2D, texture_nomes[5]);
+        }else if(i==1){
+        glBindTexture(GL_TEXTURE_2D, texture_nomes[5]);
+        }else if(i==0){
+        glBindTexture(GL_TEXTURE_2D, texture_nomes[5]);
+        }else{
+            glBindTexture(GL_TEXTURE_2D, texture_nomes[5]);
+        }
+        glPushMatrix();
+        glBegin(GL_QUADS);
+            glTexCoord2f(0.0, 0.0);
+            glVertex3fv(&v[faces[i][0]][0]);
+
+            glTexCoord2f(0.0, 1.0);
+            glVertex3fv(&v[faces[i][1]][0]);
+
+            glTexCoord2f(1.0, 1.0);
+            glVertex3fv(&v[faces[i][2]][0]);
+
+            glTexCoord2f(1.0, 0.0);
+            glVertex3fv(&v[faces[i][3]][0]);
+        glEnd();
+        glPopMatrix();
+    }
+    glPopMatrix();
+*/
+
+
+}
+
 //Miltank
-static void desenhaOvelha(){
+static void desenhaMiltank(){
 
     glPushMatrix();//Chifre 1
         glScalef(0.4, 0.4, 0.4);
@@ -748,15 +855,6 @@ static void desenhaOvelha(){
 
 
 }
-
-//Lua
-static void desenhaLua(){
-       glPushMatrix();
-            glTranslatef(-40, 10, -75);
-            glScalef(3.0, 3.0, 1.0);
-            drawCube();
-         glPopMatrix();
-}
 //Nuvem
  static void desenhaNuvem(){
     int i , j;
@@ -779,7 +877,7 @@ static void desenhaLua(){
 }
 
 //Lua ou Sol
-static void desenhaLuaOuSol(){
+static void desenhaSol(){
     glPushMatrix();
         glTranslatef(-40, 1, -75);
         glScalef(3.0, 3.0, 1.0);
@@ -861,8 +959,8 @@ static void desenhaGinasio(){
   // pilar 5
   glPushMatrix();
       glBindTexture(GL_TEXTURE_2D, texture_nomes[48]);
-      glTranslatef(-57.0, 6.0, -21.0);
-      glScalef(1.0, 11.5, 4.0);
+      glTranslatef(-57.0, 12.0, -21.0);
+      glScalef(1.0, 5.5, 4.0);
       drawCube();
    glPopMatrix();
 
@@ -1328,6 +1426,14 @@ static void desenhaGinasio(){
       glScalef(0.2, 0.49, 0.8);
       drawCube();
    glPopMatrix();
+
+   //passarela
+   glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[48]);
+      glTranslatef(-49.0, 1.0, -21.0);
+      glScalef(10, 0.5, 4.0);
+      drawCube();
+   glPopMatrix();
 }
 
 //**************************************************************************************************************
@@ -1366,49 +1472,34 @@ void display(void){
 
     glPopMatrix();
 
-//---------------------------------efeito noite - dia-----------------------------
-
-   // if(VariaDiaNoite==0){
-            /*
-    // zombie 1
-        glPushMatrix();
-
-        glTranslatef(-30, -0.2, -10);
-        glRotatef(-130.0, 0.0, 1.0, 0.0);
-        desenhaZombie();
-    glPopMatrix();*/
-
-    //zombie 2
+//---------------------------------Ahs-----------------------------
      glPushMatrix();
 
         glTranslatef(-50, -0.2, -25);
         glRotatef(-90.0, 0.0, 1.0, 0.0);
-        desenhaZombie();
+        desenhaAhs();
     glPopMatrix();
-//----------------
+//----------------Sol----------------------------
     glPushMatrix();
         glBindTexture(GL_TEXTURE_2D, texture_nomes[19]);
         glTranslatef(trans_x_SolLua, trans_y, 0.0);
-        desenhaLuaOuSol();
+        desenhaSol();
          glClearColor(0.53, 0.81, 0.98, 0.0);
     glPopMatrix();
 
-    //}
-    /*else{
-        glPushMatrix();
-            glTranslatef(trans_x_SolLua, trans_y, 0.0);
-            glBindTexture(GL_TEXTURE_2D, texture_nomes[19]);
-            desenhaLuaOuSol();
-
-        glPopMatrix();
-
-    }*/
-
-//---------------------------------Desenhando Ovelha-----------------------------
+//---------------------------------Desenhando Miltank-----------------------------
     glPushMatrix();
         glTranslatef(-11, -0.2, -14);
-        desenhaOvelha();
+        desenhaMiltank();
     glPopMatrix();
+
+//---------------------------------Desenhando Pikachu-----------------------------
+    glPushMatrix();
+        glTranslatef(-35, -0.2, -25);
+        desenhaPikachu();
+    glPopMatrix();
+
+
 //---------------------------------Desenhando Arvore-----------------------------
 
     float z= -2;
@@ -1442,28 +1533,12 @@ void display(void){
        desenhaMontanha();
     glPopMatrix();
 
-
-//---------------------------------Desenhando agua-----------------------------
-    desenhaAgua ();
-
-
+//---------------------------------Desenhando Terra-----------------------------
+       desenhaTerra2();
 //---------------------------------Desenhando Ilha - Solo-----------------------------
-    desenhaSoloIlha();
-
-
-//---------------------------------Desenhando Casa-----------------------------
-    glPushMatrix();
-        glTranslatef(3, 0, 0);
-        desenhaCasa();
-    glPopMatrix();
-
-//---------------------------------Desenhando Poço -----------------------------
-    //desenhaPoco();
-
+      desenhaSoloIlha();
+//---------------------------------Desenhando Ginasio -----------------------------
       desenhaGinasio();
-
-
-
 //----------------------------------------------------------------------
     glFlush();
 

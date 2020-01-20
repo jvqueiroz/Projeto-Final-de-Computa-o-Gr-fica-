@@ -32,28 +32,6 @@ void idle(){ //
     trans_x= 3*sin(0.0001* glutGet(GLUT_ELAPSED_TIME));
     trans_x_SolLua= 19*sin(0.0001* glutGet(GLUT_ELAPSED_TIME));
     trans_y= 17*cos(0.0001* glutGet(GLUT_ELAPSED_TIME));
-
-   /* float time= glutGet(GLUT_ELAPSED_TIME);
-    int segundos= time/1000;
-    int fase= segundos%126;
-    zera= segundos;
-
-    /*if (zera== 18){
-        VariaDiaNoite= 0;
-        zera= 0;
-    }
-
-    if(fase>= 45 && fase<= 79){ //sol
-        VariaDiaNoite= 1;
-    }
-
-    else{//Lua
-        VariaDiaNoite= 0;
-     }*/
-
-
-   // printf("Time %d\n", fase);
-//    printf("N: %d >> %d >>  D: %d\n", tNoite, cont, tDia);
     glutPostRedisplay();
 
 }
