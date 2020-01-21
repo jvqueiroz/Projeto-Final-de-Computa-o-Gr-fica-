@@ -542,4 +542,28 @@ void makeTexture(void){
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, larg, alt, 0,
                  GL_RGB, GL_UNSIGNED_BYTE, PikachuCabecaLados);
     free(PikachuCabecaLados);
+
+
+    unsigned char *PikachuCabecaOrelhaFrente = load_bmp("PikachuCabeçaOrelhaFrente.bmp", &larg, &alt);
+
+    glBindTexture(GL_TEXTURE_2D, texture_nomes[53]);
+
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, larg, alt, 0,
+                 GL_RGB, GL_UNSIGNED_BYTE, PikachuCabecaOrelhaFrente);
+    free(PikachuCabecaOrelhaFrente);
+
+
+
+    unsigned char *PikachuCabecaCima= load_bmp("PikachuCabeçaCima.bmp", &larg, &alt);
+
+    glBindTexture(GL_TEXTURE_2D, texture_nomes[54]);
+
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, larg, alt, 0,
+                 GL_RGB, GL_UNSIGNED_BYTE, PikachuCabecaCima);
+    free(PikachuCabecaCima);
+
+
+
 }//*****************************************

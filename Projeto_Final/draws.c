@@ -180,9 +180,6 @@ static void desenhaArvore(){
                 glScalef(1, 0.8, 1);
                 drawCube();
         glPopMatrix();
-
-
-
 }
 
 //Montanha
@@ -201,55 +198,6 @@ static void desenhaMontanha(){
         }
     glPopMatrix();
 }
-
-static void desenhaPoco(){
-    glPushMatrix(); //Pedra
-        glScalef(3, 1, 3);
-        glBindTexture(GL_TEXTURE_2D, texture_nomes[9]);
-        glTranslatef(-8, 2.0, -3);
-        drawCube();
-    glPopMatrix();
-
-
-    glPushMatrix(); //PedraCima
-        glScalef(3, 1, 3);
-        glBindTexture(GL_TEXTURE_2D, texture_nomes[9]);
-        glTranslatef(-8, 8.0, -3);
-        drawCube();
-    glPopMatrix();
-
-    //Pilares
-
-     glPushMatrix();
-        glScalef(0.3, 3, 0.3);
-        glBindTexture(GL_TEXTURE_2D, texture_nomes[4]);
-        glTranslatef(-88, 2.0, -22);
-        drawCube();
-    glPopMatrix();
-
-     glPushMatrix();
-        glScalef(0.3, 3, 0.3);
-        glBindTexture(GL_TEXTURE_2D, texture_nomes[4]);
-        glTranslatef(-88, 2.0, -38);
-        drawCube();
-    glPopMatrix();
-
-
-     glPushMatrix();
-        glScalef(0.3, 3, 0.3);
-        glBindTexture(GL_TEXTURE_2D, texture_nomes[4]);
-        glTranslatef(-72, 2.0, -22);
-        drawCube();
-    glPopMatrix();
-
-     glPushMatrix();
-        glScalef(0.3, 3, 0.3);
-        glBindTexture(GL_TEXTURE_2D, texture_nomes[4]);
-        glTranslatef(-72, 2.0, -38);
-        drawCube();
-    glPopMatrix();
-}
-
 //Chao1
 static void desenhaTerra2 (){
     int i, j;
@@ -264,40 +212,6 @@ static void desenhaTerra2 (){
                 drawCube();
             }
         }
-    glPopMatrix();
-}
-
-//Casa
-static void desenhaCasa(){
-
-    glPushMatrix(); //
-        glBindTexture(GL_TEXTURE_2D, texture_nomes[4]);
-        glTranslatef(-14, 4, -20);
-        glScalef(3, 3, 4);
-        drawCube1();
-
-
-
-    glPopMatrix();
-
-    //porta
-    glPushMatrix();
-        glBindTexture(GL_TEXTURE_2D, texture_nomes[3]);
-        glTranslatef(-14, 2.4, -15.9);
-        glScalef(0.8, 2.1, 0);
-        drawCube();
-
-    glPopMatrix();
-
-    //Teto
-
-
-    glPushMatrix(); //
-        glBindTexture(GL_TEXTURE_2D, texture_nomes[0]);
-        glTranslatef(-14, 6.5, -20);
-        glScalef(4, 0.9, 5);
-        drawCube1();
-
     glPopMatrix();
 }
 
@@ -494,22 +408,75 @@ static void desenhaAhs(){
 static void desenhaPikachu(){
     int i;
 
+    glPushMatrix(); //olhera 1
+        glTranslatef(-5.65, 2.2, -3.95);
+        glScalef(0.05, 0.1, 0.03);
+        glRotatef(-180.0, 0.0, -2.0,0.0);
+
+        for(i = 0; i <6; i++){
+            if(i==4){
+             glBindTexture(GL_TEXTURE_2D, texture_nomes[53]);
+            }else{
+            glBindTexture(GL_TEXTURE_2D, texture_nomes[52]);
+            }
+            glPushMatrix();
+            glBegin(GL_QUADS);
+                glTexCoord2f(0.0, 0.0);
+                glVertex3fv(&v[faces[i][0]][0]);
+
+                glTexCoord2f(0.0, 1.0);
+                glVertex3fv(&v[faces[i][1]][0]);
+
+                glTexCoord2f(1.0, 1.0);
+                glVertex3fv(&v[faces[i][2]][0]);
+
+                glTexCoord2f(1.0, 0.0);
+                glVertex3fv(&v[faces[i][3]][0]);
+            glEnd();
+            glPopMatrix();
+    }
+    glPopMatrix();
+
+
+     glPushMatrix(); //Orelha 2
+        glTranslatef(-5.5, 2.2, -3.95);
+        glScalef(0.05, 0.1, 0.03);
+        glRotatef(-180.0, 0.0, -2.0,0.0);
+                for(i = 0; i <6; i++){
+            if(i==4){
+             glBindTexture(GL_TEXTURE_2D, texture_nomes[53]);
+            }else{
+            glBindTexture(GL_TEXTURE_2D, texture_nomes[52]);
+            }
+            glPushMatrix();
+            glBegin(GL_QUADS);
+                glTexCoord2f(0.0, 0.0);
+                glVertex3fv(&v[faces[i][0]][0]);
+
+                glTexCoord2f(0.0, 1.0);
+                glVertex3fv(&v[faces[i][1]][0]);
+
+                glTexCoord2f(1.0, 1.0);
+                glVertex3fv(&v[faces[i][2]][0]);
+
+                glTexCoord2f(1.0, 0.0);
+                glVertex3fv(&v[faces[i][3]][0]);
+            glEnd();
+            glPopMatrix();
+    }
+    glPopMatrix();
+
+
     glPushMatrix(); //cabeça
         glScalef(0.2, 0.2, 0.3);
-        glTranslatef(-19.5, 14.0, -9.0);
+         glTranslatef(-28.0, 9.5, -14);
         glRotatef(-180.0, 0.0, -2.0,0.0);
 
         for(i = 0; i <6; i++){
         if(i==4){
          glBindTexture(GL_TEXTURE_2D, texture_nomes[51]);
-        }else if (i==2){
-         glBindTexture(GL_TEXTURE_2D, texture_nomes[52]);
-        }else if(i==5){
-        glBindTexture(GL_TEXTURE_2D, texture_nomes[52]);
         }else if(i==1){
-        glBindTexture(GL_TEXTURE_2D, texture_nomes[52]);
-        }else if(i==0){
-        glBindTexture(GL_TEXTURE_2D, texture_nomes[52]);
+        glBindTexture(GL_TEXTURE_2D, texture_nomes[54]);
         }else{
             glBindTexture(GL_TEXTURE_2D, texture_nomes[52]);
         }
@@ -531,10 +498,46 @@ static void desenhaPikachu(){
     }
     glPopMatrix();
 
-/*    glPushMatrix(); //Corpo
 
-        glScalef(0.3, 0.4, 0.2);
-        glTranslatef(-13, 5.5, -9.2);
+glPushMatrix(); //pata 1
+        glTranslatef(-5.65, 1.7, -3.95);
+        glScalef(0.05, 0.099, 0.04);
+        glRotatef(-180.0, 0.0, -2.0,0.0);
+        glBindTexture(GL_TEXTURE_2D, texture_nomes[52]);
+        drawCube();
+    glPopMatrix();
+
+       glPushMatrix(); //pata 2
+        glTranslatef(-5.5, 1.7, -3.95);
+        glScalef(0.05, 0.099, 0.04);
+        glRotatef(-180.0, 0.0, -2.0,0.0);
+                glBindTexture(GL_TEXTURE_2D, texture_nomes[52]);
+        drawCube();
+    glPopMatrix();
+
+
+    glPushMatrix(); //pata 3
+        glTranslatef(-5.5, 1.7, -4.4);
+        glScalef(0.05, 0.099, 0.04);
+        glRotatef(-180.0, 0.0, -2.0,0.0);
+                glBindTexture(GL_TEXTURE_2D, texture_nomes[52]);
+        drawCube();
+    glPopMatrix();
+
+
+    glPushMatrix(); //pata 4
+
+        glTranslatef(-5.7, 1.7, -4.4);
+        glScalef(0.05, 0.099, 0.04);
+        glRotatef(-180.0, 0.0, -2.0,0.0);
+              glBindTexture(GL_TEXTURE_2D, texture_nomes[52]);
+        drawCube();
+    glPopMatrix();
+
+
+    glPushMatrix(); //raboParte1
+        glTranslatef(-5.25, 1.9, -4.5);
+        glScalef(0.2, 0.1, 0.02);
         glRotatef(-180.0, 0.0, -2.0,0.0);
         for(i = 0; i <6; i++){
         if(i==4){
@@ -568,26 +571,24 @@ static void desenhaPikachu(){
     }
     glPopMatrix();
 
-    /*glPushMatrix(); //baraço 01
 
-        glScalef(0.10, 0.3, 0.10);
-          //glRotatef(30.0, 1.0, 0.0, 0.0);
-        glTranslatef(-35, 7.5, -19.2);
-         glRotatef(-45.0, -1.0, 0.0, 0.0);
+    glPushMatrix(); //raboParte2
+        glTranslatef(-5.0, 2.2, -4.5);
+        glScalef(0.3, 0.2, 0.02);
         glRotatef(-180.0, 0.0, -2.0,0.0);
         for(i = 0; i <6; i++){
         if(i==4){
-         glBindTexture(GL_TEXTURE_2D, texture_nomes[5]);
+         glBindTexture(GL_TEXTURE_2D, texture_nomes[52]);
         }else if (i==2){
-         glBindTexture(GL_TEXTURE_2D, texture_nomes[5]);
+         glBindTexture(GL_TEXTURE_2D, texture_nomes[52]);
         }else if(i==5){
-        glBindTexture(GL_TEXTURE_2D, texture_nomes[5]);
+        glBindTexture(GL_TEXTURE_2D, texture_nomes[52]);
         }else if(i==1){
-        glBindTexture(GL_TEXTURE_2D, texture_nomes[5]);
+        glBindTexture(GL_TEXTURE_2D, texture_nomes[52]);
         }else if(i==0){
-        glBindTexture(GL_TEXTURE_2D, texture_nomes[5]);
+        glBindTexture(GL_TEXTURE_2D, texture_nomes[52]);
         }else{
-            glBindTexture(GL_TEXTURE_2D, texture_nomes[5]);
+            glBindTexture(GL_TEXTURE_2D, texture_nomes[52]);
         }
         glPushMatrix();
         glBegin(GL_QUADS);
@@ -606,7 +607,6 @@ static void desenhaPikachu(){
         glPopMatrix();
     }
     glPopMatrix();
-*/
 
 
 }
@@ -859,7 +859,7 @@ static void desenhaMiltank(){
  static void desenhaNuvem(){
     int i , j;
         glBindTexture(GL_TEXTURE_2D, texture_nomes[17]);
-        glTranslatef(-70, 20, 0);
+        glTranslatef(-70, 30, 0);
         glScalef(1.0, 0.3, 1.0);
     for(i=0; i< 3; i++){
         glTranslatef(0, 0, -1.0);
@@ -1430,7 +1430,7 @@ static void desenhaGinasio(){
    //passarela
    glPushMatrix();
       glBindTexture(GL_TEXTURE_2D, texture_nomes[48]);
-      glTranslatef(-49.0, 1.0, -21.0);
+      glTranslatef(-49.0, -3.0, -21.0);
       glScalef(10, 0.5, 4.0);
       drawCube();
    glPopMatrix();
@@ -1474,9 +1474,8 @@ void display(void){
 
 //---------------------------------Ahs-----------------------------
      glPushMatrix();
-
-        glTranslatef(-50, -0.2, -25);
-        glRotatef(-90.0, 0.0, 1.0, 0.0);
+       // glRotatef(-180.0, 0.0, -1.0, 0.0);
+        glTranslatef(10, -0.2, -5);
         desenhaAhs();
     glPopMatrix();
 //----------------Sol----------------------------
@@ -1488,14 +1487,14 @@ void display(void){
     glPopMatrix();
 
 //---------------------------------Desenhando Miltank-----------------------------
-    glPushMatrix();
+    /*glPushMatrix();
         glTranslatef(-11, -0.2, -14);
         desenhaMiltank();
-    glPopMatrix();
+    glPopMatrix();*/
 
 //---------------------------------Desenhando Pikachu-----------------------------
     glPushMatrix();
-        glTranslatef(-35, -0.2, -25);
+        glTranslatef(2, -0.2, -5);
         desenhaPikachu();
     glPopMatrix();
 
@@ -1504,9 +1503,9 @@ void display(void){
 
     float z= -2;
 
-    for(i=0; i<3; i++){
+    for(i=0; i<4; i++){
         glPushMatrix();
-            glTranslatef(i+1, 1.0, z-1);
+            glTranslatef(i+2, 1.0, z-1);
             desenhaArvore();
         glPopMatrix();
             z*= -2.5;
@@ -1538,8 +1537,12 @@ void display(void){
 //---------------------------------Desenhando Ilha - Solo-----------------------------
       desenhaSoloIlha();
 //---------------------------------Desenhando Ginasio -----------------------------
-      desenhaGinasio();
+glPushMatrix();
+        glRotatef(90,0.0,-1.0,0.0);
+        glTranslatef(30, 4.2, 35);
+        desenhaGinasio();
+    glPopMatrix();
+
 //----------------------------------------------------------------------
     glFlush();
-
 }
