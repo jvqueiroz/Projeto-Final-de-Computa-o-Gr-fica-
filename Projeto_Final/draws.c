@@ -1474,8 +1474,8 @@ void display(void){
 
 //---------------------------------Ahs-----------------------------
      glPushMatrix();
-       // glRotatef(-180.0, 0.0, -1.0, 0.0);
-        glTranslatef(10, -0.2, -5);
+      glRotatef(180,0.0,-1.0,0.0);
+        glTranslatef(12, -0.2, 15);
         desenhaAhs();
     glPopMatrix();
 //----------------Sol----------------------------
@@ -1487,10 +1487,11 @@ void display(void){
     glPopMatrix();
 
 //---------------------------------Desenhando Miltank-----------------------------
-    /*glPushMatrix();
-        glTranslatef(-11, -0.2, -14);
+     glPushMatrix();
+        glTranslatef(-15, -0.2, -12);
+        glRotatef(-45,0.0,-1.0,0.0);
         desenhaMiltank();
-    glPopMatrix();*/
+     glPopMatrix();
 
 //---------------------------------Desenhando Pikachu-----------------------------
     glPushMatrix();
