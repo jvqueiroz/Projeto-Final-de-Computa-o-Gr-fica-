@@ -271,7 +271,7 @@
 	<stdio.h>
 	<stdlib.h>
 
-1579543424 source:c:\users\jvyct\documents\github\projeto-final-de-computa-o-gr-fica-\projeto_final\main.c
+1579723329 source:c:\users\jvyct\documents\github\projeto-final-de-computa-o-gr-fica-\projeto_final\main.c
 	<GL/glut.h>
 	<GL/glu.h>
 	<stdlib.h>
@@ -292,9 +292,9 @@
 	<GL/glut.h>
 	<GL/glu.h>
 
-1579573165 source:c:\users\jvyct\documents\github\projeto-final-de-computa-o-gr-fica-\projeto_final\texture.c
+1579724441 source:c:\users\jvyct\documents\github\projeto-final-de-computa-o-gr-fica-\projeto_final\texture.c
 	"texture.h"
 
-1579708318 source:c:\users\jvyct\documents\github\projeto-final-de-computa-o-gr-fica-\projeto_final\draws.c
+1579724768 source:c:\users\jvyct\documents\github\projeto-final-de-computa-o-gr-fica-\projeto_final\draws.c
 	"draws.h"
 

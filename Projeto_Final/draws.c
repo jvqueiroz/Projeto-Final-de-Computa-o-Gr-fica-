@@ -15,7 +15,7 @@ int VariaDiaNoite=0;
 float trans_x;
 float trans_y;
 float trans_x_SolLua;
-float posx = 0.0, posz = -5.0, posy= 0.0, angle = 0.0, bottom = 0.0;
+float posx = 0.0, posz = -15.0, posy= 0.0, angle = 0.0, bottom = 0.0;
 
 void drawCube(){
     int i;
@@ -1434,17 +1434,66 @@ static void desenhaGinasio(){
       glScalef(10, 0.5, 4.0);
       drawCube();
    glPopMatrix();
+
+
+   //Chao
+   glPushMatrix();
+      glBindTexture(GL_TEXTURE_2D, texture_nomes[55]);
+      glTranslatef(-80.1, -3.0, -21.0);
+      glScalef(20.01, 0.5, 11.5);
+      drawCube();
+   glPopMatrix();
 }
 
 //**************************************************************************************************************
+void MoveBraco(){
 
+glPushMatrix(); //Bra�o direito
+        glTranslatef(1, 1, -3.40);
+        glRotatef(30.0, 1.0, 0.0, 0.0);
+        glScalef(0.23, 0.7, 0.23);
+
+
+        for(i = 0; i <6; i++){
+        if(i==4){
+         glBindTexture(GL_TEXTURE_2D, texture_nomes[14]);
+        }else if (i==2){
+         glBindTexture(GL_TEXTURE_2D, texture_nomes[29]);
+        }else if(i==5){
+        glBindTexture(GL_TEXTURE_2D, texture_nomes[31]);
+        }else if(i==1){
+        glBindTexture(GL_TEXTURE_2D, texture_nomes[30]);
+        }else if(i==0){
+        glBindTexture(GL_TEXTURE_2D, texture_nomes[28]);
+        }else{
+            glBindTexture(GL_TEXTURE_2D, texture_nomes[24]);
+        }
+        glPushMatrix();
+        glBegin(GL_QUADS);
+            glTexCoord2f(0.0, 0.0);
+            glVertex3fv(&v[faces[i][0]][0]);
+
+            glTexCoord2f(0.0, 1.0);
+            glVertex3fv(&v[faces[i][1]][0]);
+
+            glTexCoord2f(1.0, 1.0);
+            glVertex3fv(&v[faces[i][2]][0]);
+
+            glTexCoord2f(1.0, 0.0);
+            glVertex3fv(&v[faces[i][3]][0]);
+        glEnd();
+        glPopMatrix();
+    }
+    glPopMatrix();
+
+}
 void display(void){
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 
     glRotatef(-angle, 0.0, 2.0, 0.0);
     glTranslatef(posx, posy, posz);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glTranslatef(0.0,-3.0,0.0);
 
 //Madeira = 0  |||  Terra= 1 |||  Folhas= 2  |||  Porta= 3  |||  Madeira Refinada =4   |||  Areia = 5
@@ -1457,7 +1506,6 @@ void display(void){
     glPushMatrix();
         glTranslatef(trans_x+25, 0, -40);
         desenhaNuvem();
-
     glPopMatrix();
 
      glPushMatrix();
@@ -1504,13 +1552,56 @@ void display(void){
 
     float z= -2;
 
-    for(i=0; i<4; i++){
+    //Arvore 01
         glPushMatrix();
-            glTranslatef(i+2, 1.0, z-1);
+            glTranslatef(4, 1.0, -2);
             desenhaArvore();
         glPopMatrix();
-            z*= -2.5;
-    }
+
+        //Arvore 02
+        glPushMatrix();
+            glTranslatef(6, 1.0, -10);
+            desenhaArvore();
+        glPopMatrix();
+
+        //Arvore 03
+        glPushMatrix();
+            glTranslatef(11, 1.0, 5);
+            desenhaArvore();
+        glPopMatrix();
+
+        //Arvore 04
+        glPushMatrix();
+            glTranslatef(8, 1.0, 10);
+            desenhaArvore();
+        glPopMatrix();
+
+        //Arvore 05
+        glPushMatrix();
+            glTranslatef(-22, 1.0, 10);
+            desenhaArvore();
+        glPopMatrix();
+
+        //Arvore 06
+        glPushMatrix();
+            glTranslatef(-25, 1.0, -5);
+            desenhaArvore();
+        glPopMatrix();
+
+        //Arvore 07
+        glPushMatrix();
+            glTranslatef(-22, 1.0, 5);
+            desenhaArvore();
+        glPopMatrix();
+
+        //Arvore 08
+        glPushMatrix();
+            glTranslatef(-22, 1.0, 10);
+            desenhaArvore();
+        glPopMatrix();
+
+
+     // arvore em cima
         glPushMatrix();
             glTranslatef(-22, 5.0, -10);
             desenhaArvore();
@@ -1542,6 +1633,16 @@ glPushMatrix();
         glRotatef(90,0.0,-1.0,0.0);
         glTranslatef(30, 4.2, 35);
         desenhaGinasio();
+    glPopMatrix();
+//--------------------------Teste---------------
+
+  glPushMatrix();
+        glBindTexture(GL_TEXTURE_2D, texture_nomes[56]);
+        //glRotatef(180,0.0,-2.0,0.0);
+
+        glScalef(1.0, 2, 2);
+        glTranslatef(-20.0, 15.0, -21.0);
+        drawCube();
     glPopMatrix();
 
 //----------------------------------------------------------------------

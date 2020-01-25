@@ -91,20 +91,17 @@ void keyboard(unsigned char key, int x, int y){
         case 'W':
             posz += 0.1*cos(M_PI*angle/180.0)*10;
             posx += 0.1*sin(M_PI*angle/180.0)*10;
-
         break;
         case 's':
         case 'S':
             posz -= 0.1*cos(M_PI*angle/180.0)*10;
             posx -= 0.1*sin(M_PI*angle/180.0)*10;
-
         break;
         case 'q':
         case 'Q':
             posz += -0.1*sin(M_PI*angle/180.0)*10;
             posx += 0.1*cos(M_PI*angle/180.0)*10;
         break;
-
         case 'e':
         case 'E':
             posz -= -0.1*sin(M_PI*angle/180.0)*10;
@@ -122,18 +119,14 @@ void keyboard(unsigned char key, int x, int y){
         case 'r':
         case 'R':
             posy -= -0.1*sin(M_PI*angle/180.0)*10;
-
         break;
-
         case 't':
         case 'T':
              posy += -0.1*sin(M_PI*angle/180.0)*10;
         break;
-
     }
-    glRotatef(-angle, 0.0, 1.0, 0.0);
-    glTranslatef(posx, 0.0, posz);
-
+        glRotatef(-angle, 0.0, 1.0, 0.0);
+        glTranslatef(posx, 0.0, posz);
     glutPostRedisplay();
 }
 

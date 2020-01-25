@@ -566,4 +566,25 @@ void makeTexture(void){
 
 
 
+    unsigned char *GinasioChao= load_bmp("GinasioChão.bmp", &larg, &alt);
+
+    glBindTexture(GL_TEXTURE_2D, texture_nomes[55]);
+
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, larg, alt, 0,
+                 GL_RGB, GL_UNSIGNED_BYTE, GinasioChao);
+    free(GinasioChao);
+
+
+       unsigned char *articuno= load_bmp("articuno.bmp", &larg, &alt);
+
+    glBindTexture(GL_TEXTURE_2D, texture_nomes[56]);
+
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, larg, alt, 0,
+                 GL_RGB, GL_UNSIGNED_BYTE, articuno);
+    free(articuno);
+
+
+
 }//*****************************************
