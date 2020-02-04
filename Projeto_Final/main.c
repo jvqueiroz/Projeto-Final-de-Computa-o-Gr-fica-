@@ -14,10 +14,8 @@
 extern GLuint texture_nomes [80];
 extern int VariaDiaNoite;
 extern GLfloat v[8][3];
-extern float posx, posz, posy, angle, bottom;
 
 void init(void);
-void keyboard (unsigned char key, int x, int y);
 void idle();
 
 extern float trans_x;
@@ -42,10 +40,11 @@ int main(int argc, char **argv){
     glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB | GLUT_DEPTH);
     glutInitWindowSize(WIDTH, HEIGHT);
     glutInitWindowPosition(200, 0);
-    glutCreateWindow("Minecraft");
+    glutCreateWindow("pokemon");
     glutDisplayFunc(display);
     glutIdleFunc(idle);
     glutKeyboardFunc(keyboard);
+    glutKeyboardUpFunc (keyboardup);
     init();
     glutMainLoop();
 
@@ -77,58 +76,3 @@ void init(void){
     makeTexture();
 
 }
-
-void keyboard(unsigned char key, int x, int y){
-    static float posx= 0.0, posz= -5.0, angle= 0.0;
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-    gluPerspective(45.0f, (float) WIDTH/ (float)HEIGHT, 1.0f, 100.0f);
-    switch(key){
-        case 27:
-            exit(0);
-        break;
-        case 'w':
-        case 'W':
-            posz += 0.1*cos(M_PI*angle/180.0)*10;
-            posx += 0.1*sin(M_PI*angle/180.0)*10;
-        break;
-        case 's':
-        case 'S':
-            posz -= 0.1*cos(M_PI*angle/180.0)*10;
-            posx -= 0.1*sin(M_PI*angle/180.0)*10;
-        break;
-        case 'q':
-        case 'Q':
-            posz += -0.1*sin(M_PI*angle/180.0)*10;
-            posx += 0.1*cos(M_PI*angle/180.0)*10;
-        break;
-        case 'e':
-        case 'E':
-            posz -= -0.1*sin(M_PI*angle/180.0)*10;
-            posx -= 0.1*cos(M_PI*angle/180.0)*10;
-        break;
-        case 'a':
-        case 'A':
-            angle += 5;
-        break;
-        case 'd':
-        case 'D':
-            angle -= 5;
-        break;
-
-        case 'r':
-        case 'R':
-            posy -= -0.1*sin(M_PI*angle/180.0)*10;
-        break;
-        case 't':
-        case 'T':
-             posy += -0.1*sin(M_PI*angle/180.0)*10;
-        break;
-    }
-        glRotatef(-angle, 0.0, 1.0, 0.0);
-        glTranslatef(posx, 0.0, posz);
-    glutPostRedisplay();
-}
-
-
-

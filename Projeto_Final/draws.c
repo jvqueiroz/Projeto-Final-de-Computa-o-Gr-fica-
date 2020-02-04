@@ -1,8 +1,15 @@
 #include "draws.h"
 
+#include <math.h>
+
 GLuint texture_nomes [80];
 int i;
-float y=-3.5;
+
+//------move marco------
+float rot_rate = 0;
+float trans_rate = 0,ytrans_rate = 0,transl_rate = 0;
+float  move = 1.15;
+//-------------
 
 GLint faces[6][4] = {
     {0,1,2,3}, {3,2,6,7}, {7,6,5,4},
@@ -15,7 +22,6 @@ int VariaDiaNoite=0;
 float trans_x;
 float trans_y;
 float trans_x_SolLua;
-float posx = 0.0, posz = -15.0, posy= 0.0, angle = 0.0, bottom = 0.0;
 
 void drawCube(){
     int i;
@@ -1446,54 +1452,83 @@ static void desenhaGinasio(){
 }
 
 //**************************************************************************************************************
-void MoveBraco(){
+void bracotela() {
+    glPushMatrix();
 
-glPushMatrix(); //Bra�o direito
-        glTranslatef(1, 1, -3.40);
-        glRotatef(30.0, 1.0, 0.0, 0.0);
-        glScalef(0.23, 0.7, 0.23);
+    glTranslatef(0.70, -0.50, -2.0);
+    glRotatef(145.0, 1.0, 0.0, 0.0);
+    glScalef(0.23, 0.7, 0.23);
 
 
-        for(i = 0; i <6; i++){
-        if(i==4){
-         glBindTexture(GL_TEXTURE_2D, texture_nomes[14]);
-        }else if (i==2){
-         glBindTexture(GL_TEXTURE_2D, texture_nomes[29]);
-        }else if(i==5){
-        glBindTexture(GL_TEXTURE_2D, texture_nomes[31]);
-        }else if(i==1){
-        glBindTexture(GL_TEXTURE_2D, texture_nomes[30]);
-        }else if(i==0){
-        glBindTexture(GL_TEXTURE_2D, texture_nomes[28]);
-        }else{
+    for(i = 0; i <6; i++) {
+        if(i==4) {
+            glBindTexture(GL_TEXTURE_2D, texture_nomes[14]);
+        } else if (i==2) {
+            glBindTexture(GL_TEXTURE_2D, texture_nomes[29]);
+        } else if(i==5) {
+            glBindTexture(GL_TEXTURE_2D, texture_nomes[31]);
+        } else if(i==1) {
+            glBindTexture(GL_TEXTURE_2D, texture_nomes[30]);
+        } else if(i==0) {
+            glBindTexture(GL_TEXTURE_2D, texture_nomes[28]);
+        } else {
             glBindTexture(GL_TEXTURE_2D, texture_nomes[24]);
         }
         glPushMatrix();
         glBegin(GL_QUADS);
-            glTexCoord2f(0.0, 0.0);
-            glVertex3fv(&v[faces[i][0]][0]);
+        glTexCoord2f(0.0, 0.0);
+        glVertex3fv(&v[faces[i][0]][0]);
 
-            glTexCoord2f(0.0, 1.0);
-            glVertex3fv(&v[faces[i][1]][0]);
+        glTexCoord2f(0.0, 1.0);
+        glVertex3fv(&v[faces[i][1]][0]);
 
-            glTexCoord2f(1.0, 1.0);
-            glVertex3fv(&v[faces[i][2]][0]);
+        glTexCoord2f(1.0, 1.0);
+        glVertex3fv(&v[faces[i][2]][0]);
 
-            glTexCoord2f(1.0, 0.0);
-            glVertex3fv(&v[faces[i][3]][0]);
+        glTexCoord2f(1.0, 0.0);
+        glVertex3fv(&v[faces[i][3]][0]);
         glEnd();
         glPopMatrix();
     }
     glPopMatrix();
-
 }
 void display(void){
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glMatrixMode(GL_MODELVIEW);
+    //glLoadIdentity();//---pode tirar
+//-----------------------------Movimentacao calculo---------------------------------
+    /*
+    *Move marco
+    */
+
+    static float angle = 0;
+    static float pos_x = 0;
+    static float pos_z = 0;
+    static float pos_y = 0;
+
+    static int lastTime = 0;
+    int currentTime = glutGet(GLUT_ELAPSED_TIME);
+    float deltaT = (currentTime - lastTime)/1000.0;
+    lastTime = currentTime;
+
     glLoadIdentity();
 
-    glRotatef(-angle, 0.0, 2.0, 0.0);
-    glTranslatef(posx, posy, posz);
+    angle += rot_rate*deltaT;
+
+    pos_x += -2*trans_rate*sin(M_PI*angle/180);
+    pos_z += 2*trans_rate*cos(M_PI*angle/180);
+
+    pos_z += -2*transl_rate*sin(M_PI*angle/180);
+    pos_x += 2*transl_rate*cos(M_PI*angle/180);
+
+    pos_y += 2*ytrans_rate*sin(M_PI*angle/180);//sobe-desce
+//-----------------------------movimentacao trans-rot----------------------------------
+ bracotela();
+
+
+//glPushMatrix();//-- nao vi diferenca
+    glRotatef(-angle, 0.0, -1.0, 0.0);
+    glTranslatef(pos_x, pos_y, pos_z);
     glTranslatef(0.0,-3.0,0.0);
 
 //Madeira = 0  |||  Terra= 1 |||  Folhas= 2  |||  Porta= 3  |||  Madeira Refinada =4   |||  Areia = 5
@@ -1646,5 +1681,101 @@ glPushMatrix();
     glPopMatrix();
 
 //----------------------------------------------------------------------
+    //glPopMatrix();//---nao vi influencia
     glFlush();
+    glutPostRedisplay();//nao sei o que e
 }
+//-------move marco------------------------
+void keyboard(unsigned char key, int xx, int yy) {
+    printf("Down: %d\n", key);
+    switch(key) {
+
+    case 'a':
+    case 'A':
+        rot_rate = -25*move;
+        break;
+
+    case 'd':
+    case 'D':
+        rot_rate = 25*move;
+        break;
+
+    case 'w':
+    case 'W':
+        trans_rate = move;
+        break;
+
+    case 's':
+    case 'S':
+        trans_rate = -move;
+        break;
+
+    case 'r':
+    case 'R':
+        ytrans_rate = move;
+
+        break;
+
+    case 't':
+    case 'T':
+        ytrans_rate = -move;
+        break;
+
+    case 'q':
+    case 'Q':
+        transl_rate = move;
+        break;
+
+    case 'e':
+    case 'E':
+        transl_rate = -move;
+        break;
+
+    case 27:
+        exit(0);
+        break;
+    }
+}
+void keyboardup(unsigned char key, int x, int y) {
+    printf("Up %d\n", key);
+    switch(key) {
+
+    case 'a':
+    case 'd':
+    case 'A':
+    case 'D':
+
+
+        rot_rate = 0;
+        break;
+
+    case 'w':
+    case 'W':
+    case 's':
+    case 'S':
+
+
+        trans_rate = 0;
+        break;
+
+    case 'r':
+    case 'R':
+    case 't':
+    case 'T':
+
+        ytrans_rate = 0;
+        break;
+
+    case 'q':
+    case 'Q':
+    case 'e':
+    case 'E':
+        transl_rate = 0;
+        break;
+
+    case 27:
+        exit(0);
+        break;
+    }
+}
+//-----------------------------------------------

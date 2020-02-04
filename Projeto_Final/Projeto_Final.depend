@@ -298,3 +298,63 @@
 1579724768 source:c:\users\jvyct\documents\github\projeto-final-de-computa-o-gr-fica-\projeto_final\draws.c
 	"draws.h"
 
+1579969781 source:c:\users\euder\desktop\cg\projeto-de-comptexturas\projeto-de-comptexturas\projeto_final\bmp_loader.c
+	<stdio.h>
+	<stdlib.h>
+
+1579979840 source:c:\users\euder\desktop\cg\projeto-de-comptexturas\projeto-de-comptexturas\projeto_final\draws.c
+	"draws.h"
+	<math.h>
+
+1579979520 c:\users\euder\desktop\cg\projeto-de-comptexturas\projeto-de-comptexturas\projeto_final\draws.h
+	<GL/glut.h>
+	<GL/glu.h>
+
+1579979476 source:c:\users\euder\desktop\cg\projeto-de-comptexturas\projeto-de-comptexturas\projeto_final\main.c
+	<GL/glut.h>
+	<GL/glu.h>
+	<stdlib.h>
+	<stdio.h>
+	<math.h>
+	"bmp_loader.h"
+	"texture.h"
+	"draws.h"
+
+1579969781 c:\users\euder\desktop\cg\projeto-de-comptexturas\projeto-de-comptexturas\projeto_final\bmp_loader.h
+
+1579969781 c:\users\euder\desktop\cg\projeto-de-comptexturas\projeto-de-comptexturas\projeto_final\texture.h
+	<GL/glut.h>
+	<GL/glu.h>
+	"draws.h"
+
+1579969781 source:c:\users\euder\desktop\cg\projeto-de-comptexturas\projeto-de-comptexturas\projeto_final\texture.c
+	"texture.h"
+
+1579969781 source:c:\users\jvyct\desktop\projeto_final(versão nova)\bmp_loader.c
+	<stdio.h>
+	<stdlib.h>
+
+1579979476 source:c:\users\jvyct\desktop\projeto_final(versão nova)\main.c
+	<GL/glut.h>
+	<GL/glu.h>
+	<stdlib.h>
+	<stdio.h>
+	<math.h>
+	"bmp_loader.h"
+	"texture.h"
+	"draws.h"
+
+1579969781 c:\users\jvyct\desktop\projeto_final(versão nova)\bmp_loader.h
+
+1579969781 c:\users\jvyct\desktop\projeto_final(versão nova)\texture.h
+	<GL/glut.h>
+	<GL/glu.h>
+	"draws.h"
+
+1579979520 c:\users\jvyct\desktop\projeto_final(versão nova)\draws.h
+	<GL/glut.h>
+	<GL/glu.h>
+
+1579969781 source:c:\users\jvyct\desktop\projeto_final(versão nova)\texture.c
+	"texture.h"
+

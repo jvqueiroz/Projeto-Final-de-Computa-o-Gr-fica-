@@ -7,5 +7,7 @@
 void drawCube();
 void drawMatriz(float, float);
 void display(void);
+void keyboard (unsigned char key, int x, int y);
+void keyboardup(unsigned char key, int x, int y);
 
 #endif
