@@ -1430,9 +1430,9 @@ static void desenhaGinasio(){
 void bracotelaPokebola() {
     glPushMatrix();
     glBindTexture(GL_TEXTURE_2D, texture_nomes[59]);
-    glTranslatef(-1, -0.86, -2.1);
+    glTranslatef(-1, -0.90, -2.1);
     glRotatef(145.0, 2.0, 0.0, 0.0);
-    glScalef(0.5, 0.05, 0.5);
+    glScalef(0.5, 0.0, 0.4);
     drawCube();
     glPopMatrix();
 }
@@ -1440,8 +1440,8 @@ void bracotelaPokebola() {
 //**************************************************************************************************************
 void bracotela() {
 glPushMatrix();
-    glTranslatef(0.10, -0.50, -1.1);
-    glRotatef(145.0, 2.0, 0.0, 0.0);
+    glTranslatef(0.70, -0.50, -2.0);
+    glRotatef(145.0, 1.0, 0.0, 0.0);
     glScalef(0.15, 0.3, 0.15);
    if( poker==1){
          bracotelaPokebola();
