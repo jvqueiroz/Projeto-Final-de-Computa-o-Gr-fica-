@@ -1,13 +1,11 @@
 #include "texture.h"
 
-extern GLuint texture_nomes [80];
-extern float posx, posz, posy, angle, bottom;
+extern GLuint texture_nomes [90];
 
 void makeTexture(void){
     GLubyte texture[16][16][3];
     GLubyte *loc;
     int s,t;
-
     /*Setup RGB image of the texture. */
     loc = (GLubyte*) texture;
         for(t=0; t<16; t++){
@@ -17,7 +15,6 @@ void makeTexture(void){
                     loc[0] = 0xaa;
                     loc[1] = 0xaa;
                     loc[2]= 0xaa;
-
                 loc += 3;
             }
         }
@@ -54,45 +51,6 @@ void makeTexture(void){
     free(folhas);
 
 
-    unsigned char *porta = load_bmp("porta.bmp", &larg, &alt);
-
-    glBindTexture(GL_TEXTURE_2D, texture_nomes[3]);
-
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, larg, alt, 0,
-                 GL_RGB, GL_UNSIGNED_BYTE, porta);
-    free(porta);
-
-
-    unsigned char *madeira_refinada = load_bmp("madeiraRefinada.bmp", &larg, &alt);
-
-    glBindTexture(GL_TEXTURE_2D, texture_nomes[4]);
-
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, larg, alt, 0,
-                 GL_RGB, GL_UNSIGNED_BYTE, madeira_refinada);
-    free(madeira_refinada);
-
-
-    unsigned char *chao_areia = load_bmp("chaoAreia.bmp", &larg, &alt);
-
-    glBindTexture(GL_TEXTURE_2D, texture_nomes[5]);
-
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, larg, alt, 0,
-                 GL_RGB, GL_UNSIGNED_BYTE, chao_areia);
-    free(chao_areia);
-
-
-    unsigned char *capim = load_bmp("chaoCapim.bmp", &larg, &alt);
-
-    glBindTexture(GL_TEXTURE_2D, texture_nomes[6]);
-
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, larg, alt, 0,
-                 GL_RGB, GL_UNSIGNED_BYTE, capim);
-    free(capim);
-
 
     unsigned char *chao_terra2 = load_bmp("ChaoGrama.bmp", &larg, &alt);
 
@@ -104,24 +62,7 @@ void makeTexture(void){
     free(chao_terra2);
 
 
-    unsigned char *pedra = load_bmp("pedra.bmp", &larg, &alt);
 
-    glBindTexture(GL_TEXTURE_2D, texture_nomes[8]);
-
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, larg, alt, 0,
-                 GL_RGB, GL_UNSIGNED_BYTE, pedra);
-    free(pedra);
-
-
-    unsigned char *pedregulho = load_bmp("pedregulho.bmp", &larg, &alt);
-
-    glBindTexture(GL_TEXTURE_2D, texture_nomes[9]);
-
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, larg, alt, 0,
-                 GL_RGB, GL_UNSIGNED_BYTE, pedregulho);
-    free(pedregulho);
 
 
     unsigned char *MiltankCabecaFrente = load_bmp("MiltankCabeçaFrente.bmp", &larg, &alt);
@@ -576,15 +517,13 @@ void makeTexture(void){
     free(GinasioChao);
 
 
-       unsigned char *articuno= load_bmp("articuno.bmp", &larg, &alt);
+     unsigned char *Pokebola= load_bmp("Pokebola.bmp", &larg, &alt);
 
-    glBindTexture(GL_TEXTURE_2D, texture_nomes[56]);
+    glBindTexture(GL_TEXTURE_2D, texture_nomes[59]);
 
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, larg, alt, 0,
-                 GL_RGB, GL_UNSIGNED_BYTE, articuno);
-    free(articuno);
-
-
+                 GL_RGB, GL_UNSIGNED_BYTE, Pokebola);
+    free(Pokebola);
 
 }//*****************************************

@@ -11,7 +11,7 @@
 #define HEIGHT 780
 #define LENGTH 1.0
 
-extern GLuint texture_nomes [80];
+extern GLuint texture_nomes [90];
 extern int VariaDiaNoite;
 extern GLfloat v[8][3];
 
@@ -71,8 +71,7 @@ void init(void){
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 
-
-    glGenTextures(80, texture_nomes);
+    glGenTextures(90, texture_nomes);
     makeTexture();
 
 }

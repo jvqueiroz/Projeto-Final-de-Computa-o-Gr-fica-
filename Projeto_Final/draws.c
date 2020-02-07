@@ -2,8 +2,9 @@
 
 #include <math.h>
 
-GLuint texture_nomes [80];
-int i;
+GLuint texture_nomes [90];
+int i, poker=0;
+
 
 //------move marco------
 float rot_rate = 0;
@@ -24,7 +25,7 @@ float trans_y;
 float trans_x_SolLua;
 
 void drawCube(){
-    int i;
+
     for(i = 0; i < 6; i++){
         glBegin(GL_QUADS);
             glTexCoord2f(0.0, 0.0);
@@ -42,30 +43,6 @@ void drawCube(){
     }
 
 }
-
-
-void drawCube1(){
-
-    int i;
-
-    for(i = 0; i < 6; i++){
-        glBegin(GL_QUADS);
-            glTexCoord2f(0.0, 0.0);
-            glVertex3fv(&v[faces[i][0]][0]);
-
-            glTexCoord2f(0.0, 3.0);
-            glVertex3fv(&v[faces[i][1]][0]);
-
-            glTexCoord2f(3.0, 3.0);
-            glVertex3fv(&v[faces[i][2]][0]);
-
-            glTexCoord2f(3.0, 0.0);
-            glVertex3fv(&v[faces[i][3]][0]);
-        glEnd();
-    }
-
-}
-
 
 //****************************************
 void drawMatriz(float tx, float ty){
@@ -1450,16 +1427,26 @@ static void desenhaGinasio(){
       drawCube();
    glPopMatrix();
 }
+void bracotelaPokebola() {
+    glPushMatrix();
+    glBindTexture(GL_TEXTURE_2D, texture_nomes[59]);
+    glTranslatef(-1, -0.86, -2.1);
+    glRotatef(145.0, 2.0, 0.0, 0.0);
+    glScalef(0.5, 0.05, 0.5);
+    drawCube();
+    glPopMatrix();
+}
 
 //**************************************************************************************************************
 void bracotela() {
-    glPushMatrix();
-
-    glTranslatef(0.70, -0.50, -2.0);
-    glRotatef(145.0, 1.0, 0.0, 0.0);
-    glScalef(0.23, 0.7, 0.23);
-
-
+glPushMatrix();
+    glTranslatef(0.10, -0.50, -1.1);
+    glRotatef(145.0, 2.0, 0.0, 0.0);
+    glScalef(0.15, 0.3, 0.15);
+   if( poker==1){
+         bracotelaPokebola();
+   }
+//Braço
     for(i = 0; i <6; i++) {
         if(i==4) {
             glBindTexture(GL_TEXTURE_2D, texture_nomes[14]);
@@ -1523,17 +1510,14 @@ void display(void){
 
     pos_y += 2*ytrans_rate*sin(M_PI*angle/180);//sobe-desce
 //-----------------------------movimentacao trans-rot----------------------------------
- bracotela();
 
-
-//glPushMatrix();//-- nao vi diferenca
+    bracotela();
     glRotatef(-angle, 0.0, -1.0, 0.0);
     glTranslatef(pos_x, pos_y, pos_z);
     glTranslatef(0.0,-3.0,0.0);
 
-//Madeira = 0  |||  Terra= 1 |||  Folhas= 2  |||  Porta= 3  |||  Madeira Refinada =4   |||  Areia = 5
-//Capim= 6     |||  Agua= 7  |||  Pedra= 8   |||  Pedregulho  = 9
 
+//-------------------------------------------------------------------------------------
     int i, j;
 
 //---------------------------------Desenhando Nuvem-----------------------------
@@ -1585,7 +1569,6 @@ void display(void){
 
 //---------------------------------Desenhando Arvore-----------------------------
 
-    float z= -2;
 
     //Arvore 01
         glPushMatrix();
@@ -1642,8 +1625,6 @@ void display(void){
             desenhaArvore();
         glPopMatrix();
 
-
-
 //---------------------------------Desenhando Montanha-----------------------------
     glPushMatrix();
        glTranslatef(-1, 0, 4);
@@ -1661,29 +1642,16 @@ void display(void){
 
 //---------------------------------Desenhando Terra-----------------------------
        desenhaTerra2();
-//---------------------------------Desenhando Ilha - Solo-----------------------------
-      desenhaSoloIlha();
+       desenhaSoloIlha();
 //---------------------------------Desenhando Ginasio -----------------------------
 glPushMatrix();
         glRotatef(90,0.0,-1.0,0.0);
         glTranslatef(30, 4.2, 35);
         desenhaGinasio();
     glPopMatrix();
-//--------------------------Teste---------------
-
-  glPushMatrix();
-        glBindTexture(GL_TEXTURE_2D, texture_nomes[56]);
-        //glRotatef(180,0.0,-2.0,0.0);
-
-        glScalef(1.0, 2, 2);
-        glTranslatef(-20.0, 15.0, -21.0);
-        drawCube();
-    glPopMatrix();
-
-//----------------------------------------------------------------------
-    //glPopMatrix();//---nao vi influencia
+//-----------------------------------------------------
     glFlush();
-    glutPostRedisplay();//nao sei o que e
+    glutPostRedisplay();
 }
 //-------move marco------------------------
 void keyboard(unsigned char key, int xx, int yy) {
@@ -1739,6 +1707,15 @@ void keyboard(unsigned char key, int xx, int yy) {
 void keyboardup(unsigned char key, int x, int y) {
     printf("Up %d\n", key);
     switch(key) {
+    case 'p':
+    case 'P':
+         poker=1;
+    break;
+
+    case 'o':
+    case 'O':
+         poker=0;
+    break;
 
     case 'a':
     case 'd':

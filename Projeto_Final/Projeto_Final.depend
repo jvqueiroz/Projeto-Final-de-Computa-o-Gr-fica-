@@ -334,7 +334,7 @@
 	<stdio.h>
 	<stdlib.h>
 
-1579979476 source:c:\users\jvyct\desktop\projeto_final(versão nova)\main.c
+1581030199 source:c:\users\jvyct\desktop\projeto_final(versão nova)\main.c
 	<GL/glut.h>
 	<GL/glu.h>
 	<stdlib.h>
@@ -355,6 +355,10 @@
 	<GL/glut.h>
 	<GL/glu.h>
 
-1579969781 source:c:\users\jvyct\desktop\projeto_final(versão nova)\texture.c
+1581033647 source:c:\users\jvyct\desktop\projeto_final(versão nova)\texture.c
 	"texture.h"
+
+1581033622 source:c:\users\jvyct\desktop\projeto_final(versão nova)\draws.c
+	"draws.h"
+	<math.h>
 
